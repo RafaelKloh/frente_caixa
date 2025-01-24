@@ -3,9 +3,10 @@
 class home_controller extends render_view
 {
     public function index(){
-        $this->load_view('home',[
+        $users = new user_model();
+        $this->load_view('home_view',[
             'title' => 'Home Page',
-            'user' => 'TOMARA QUE ISSO FUNCIONE PQ N QUERO OUVIR CHORO DA SOFIA NO MEU OUVIDO'
+            'users' => $users->fetch()
         ]);
     }
 }
