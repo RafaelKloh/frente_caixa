@@ -30,5 +30,10 @@ class user_model extends database{
     public function user_register($name,$login,$password){
         $stm = $this->pdo->query("INSERT INTO usuario(nome,ativo,login_usuario,id_grupo_usuario,senha) VALUES ('$name','Sim','$login',1,'$password')");
     }
+    public function register_user($name,$login,$password,$group)
+    {
+        $stm = $this->pdo->query("INSERT INTO usuario(nome,ativo,login_usuario,id_grupo_usuario,senha) VALUES ('$name','Sim','$login','$group','$password')");
+
+    }
     
 }

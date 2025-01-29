@@ -21,6 +21,7 @@ class user_controller extends render_view
 
     public function user_register_load_view()
     {
+        $item = new item_model();
         $this->load_view('user_register_view',[]);
     }
     public function user_register()
@@ -30,6 +31,20 @@ class user_controller extends render_view
         $password = $_POST['password'];
         $user = new user_model();
         $this->load_view('home_view', ['user' => $user->user_register($name,$login,$password)]);
+    }
+    public function render_register_user()
+    {
+        
+        $this->load_view('register_user_view',[]);
+    }
+    public function register_user()
+    {
+        $name = $_POST['name'];
+        $login = $_POST['login'];
+        $password = $_POST['password'];
+        $group = $_POST['user_group'];
+        $user = new user_model();
+       $this->load_view('menu_view', ['user' => $user->register_user($name,$login,$password,$group,$user)]);
     }
     
 }

@@ -9,9 +9,9 @@
     <ul>
         <li><a href="render_register_item">Cadastrar Item</a></li>
         <li><a href="register_client">Cadastrar Cliente</a></li>
-        <li><a href="register_payment_method">Cadastrar Forma de Pagamento</a></li>
+        <li><a href="render_register_payment_method">Cadastrar Forma de Pagamento</a></li>
         <li><a href="register_promotion">Cadastrar Promoção</a></li>
-        <li><a href="register_user">Cadastrar Usuário</a></li>
+        <li><a href="render_register_user">Cadastrar Usuário</a></li>
     </ul>
 </body>
 </html>
