@@ -10,6 +10,8 @@ $routs = [
     '/render_register_user' => 'user_controller@render_register_user',
     '/register_user' => 'user_controller@register_user',
     '/render_register_payment_method' => 'payment_method_controller@render_register_payment_method',
-    '/register_payment_method' => 'payment_method_controller@register_payment_method'
+    '/register_payment_method' => 'payment_method_controller@register_payment_method',
+    '/render_register_client' => 'client_controller@render_register_client',
+    '/register_client' => 'client_controller@register_client'
     
 ];

@@ -14,7 +14,24 @@
         <br>
         <p>tipo recebimento</p>
         <br>
-        
+        <select name="receipt_type" id = "receipt_type"">
+        <?php 
+    foreach ($payment_method as $type) {
+        $id = $type['id_tipo_recebimento'];
+        $denominacao = $type['denominacao'];
+        echo "<option value=\"$id\">$denominacao</option>";
+    }
+    ?>
+        </select>
+        <br>
+        <p>Código</p>
+        <br>
+        <input type="number" name ="code">
+        <br>
+        <p>Quantidade de Parcelas</p>
+        <br>
+        <input type="number" name = "qtd">
+        <br>
         <br>
         <button type = "submite">Cadastrar</button>
     </form>
