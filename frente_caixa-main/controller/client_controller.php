@@ -20,7 +20,11 @@ class client_controller extends render_view
             $response = curl_exec($ch);
             curl_close($ch);
 
-            $dados = json_decode($response, true);
+            $dados = json_decode($response, true) ?? []; // Garante que seja um array
+            if (!is_array($dados) || empty($dados) || isset($dados['erro'])) {
+                die("Erro ao consultar o CEP. Verifique o valor informado.");
+            }
+
 
             if (isset($dados['erro'])) {
                 return "CEP não encontrado!";
@@ -44,30 +48,49 @@ class client_controller extends render_view
         $number = $_POST['number'];
         $dados = consultarCep($cep);
 
-        if (is_array($dados)) {
-            echo "<strong>CEP:</strong> " . $dados['cep'] . "<br>";
-            echo "<strong>Logradouro:</strong> " . $dados['logradouro'] . "<br>";
-            echo "<strong>Bairro:</strong> " . $dados['bairro'] . "<br>";
-            echo "<strong>Cidade:</strong> " . $dados['localidade'] . "<br>";
-            echo "<strong>Estado:</strong> " . $dados['uf'] . "<br>";
-            echo "<strong>DDD:</strong> " . $dados['ddd'] . "<br>";
-            echo "<strong>IBGE:</strong> " . $dados['ibge'] . "<br>";
-        } else {
-            echo $dados;
-        }
+        
         $log = $dados['logradouro'];
         $burgh = $dados['bairro'];
         $city = $dados['localidade'];
-        $state = $dados['estado'];
+        $state = $dados['uf'];
         $ibge = $dados['ibge'];
         if($cpf == ""){
             $cpf = $cnpj;
         }
         $client = new client_model();
-        $this->load_view('home_view', ['client' => $client->register_client($name,$sex,$email,$code,$date,$nature,$cpf,$ie,$rg,$cep,$number,$log,$burgh,$city,$state,$ibge)]);
-        
+        $this->load_view('menu_view', ['client' => $client->register_client($name,$sex,$email,$code,$date,$nature,$cpf,$ie,$rg,$cep,$number,$log,$burgh,$city,$state,$ibge)]);
+    }
 
+    public function render_register_promotion(){
+        $client = new client_model();
+        $item = new item_model();
 
+        $clientsData = $client->fetch();
+        $itemsData = $item->fetch();
+
+        $this->load_view('register_promotion_view', [
+            'client' => $clientsData,
+            'item' => $itemsData
+        ]);
+
+    }
+
+    public function register_promotion()
+    {
+        $client = $_POST['client'];
+        $itens = $_POST['item']; // Array de itens
+        $discount = $_POST['discount'];
+        $description = $_POST['obs'];
+
+        $client_model = new client_model();
+        $success = $client_model->register_promotion($client, $itens, $discount, $description);
+
+        if ($success) {
+            echo "<script>alert('Promoção cadastrada com sucesso'); window.location.href = '/frente_caixa-main/menu_view';</script>";
+
+        } else {
+            echo "<script>alert('Erro ao tentar cadastrar promoção'); window.location.href = '/frente_caixa-main/register_promotion_view';</script>";
+        }
     }
     
 }

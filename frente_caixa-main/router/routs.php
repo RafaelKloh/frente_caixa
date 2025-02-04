@@ -12,6 +12,10 @@ $routs = [
     '/render_register_payment_method' => 'payment_method_controller@render_register_payment_method',
     '/register_payment_method' => 'payment_method_controller@register_payment_method',
     '/render_register_client' => 'client_controller@render_register_client',
-    '/register_client' => 'client_controller@register_client'
+    '/register_client' => 'client_controller@register_client',
+    '/render_register_promotion' => 'client_controller@render_register_promotion',
+    '/register_promotion' => 'client_controller@register_promotion',
+    '/menu_view' => 'home_controller@render_menu_view',
+    '/render_list_promotion' => 'item_controller@render_list_promotion'
     
 ];

@@ -20,4 +20,10 @@ class item_controller extends render_view
         $item = new item_model();
         $this->load_view('menu_view',['item' => $item->register_item($name,$price,$code,$code_bar,$unit,$stock,$category,$commission)]);
     }
+
+    public function render_list_promotion()
+    {
+        $item = new item_model();
+        $this->load_view('list_promotion_view',['list' => $item->fetch_promotion()]);
+    }
 }

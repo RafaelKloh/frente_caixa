@@ -14,7 +14,6 @@ class user_controller extends render_view
 
     public function user_register_load_view()
     {
-        $item = new item_model();
         $this->load_view('user_register_view',[]);
     }
     public function user_register()

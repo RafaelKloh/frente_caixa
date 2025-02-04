@@ -9,4 +9,8 @@ class home_controller extends render_view
             'users' => $users->fetch()
         ]);
     }
+
+    public function render_menu_view(){
+        $this->load_view('menu_view',[]); 
+    }
 }
