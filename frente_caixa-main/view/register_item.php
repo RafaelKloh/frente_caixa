@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/frente_caixa-main/global_style.css">
-
+    <link rel="stylesheet" href="/frente_caixa-main/item.css">
 </head>
 <body>
-    <h1>Cadastro de item</h1>
+    <h1>Cadastro de Item</h1>
 
     <form action="register_item" method = "POST">
         <p>Denominação</p>

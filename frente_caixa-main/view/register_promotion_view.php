@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/frente_caixa-main/global_style.css">
+    <link rel="stylesheet" href="/frente_caixa-main/promotion.css">
 
 </head>
 <body>

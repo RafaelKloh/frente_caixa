@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/frente_caixa-main/payment_method.css">
 </head>
 <body>
-    <h1>cadastrar forma de pagamento</h1>
+    <h1>Cadastrar Forma de Pagamento</h1>
     <form action="register_payment_method" method= "POST">
         <p>Denominação</p>
         <br>

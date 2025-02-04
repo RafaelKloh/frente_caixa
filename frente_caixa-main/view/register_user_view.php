@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/frente_caixa-main/global_style.css">
+    <link rel="stylesheet" href="/frente_caixa-main/user.css">
 
 </head>
 <body>
+    <h1>Cadastrar Usuario</h1>
     <form action="register_user" method = "POST">
         <p>Nome</p>
         <br>
