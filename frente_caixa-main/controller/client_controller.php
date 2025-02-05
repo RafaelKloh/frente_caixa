@@ -82,6 +82,11 @@ class client_controller extends render_view
         $discount = $_POST['discount'];
         $description = $_POST['obs'];
 
+        if($discount > 100){
+            echo "<script>alert('Insira um valor menor do que 100% no campo desconto');window.location.href = '/frente_caixa-main/render_register_promotion';</script>";
+            return;
+        }
+
         $client_model = new client_model();
         $success = $client_model->register_promotion($client, $itens, $discount, $description);
 
