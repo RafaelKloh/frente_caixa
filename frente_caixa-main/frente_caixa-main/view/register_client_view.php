@@ -10,7 +10,11 @@
     <script>
         function toggleFields() {
             let nature = document.getElementById("nature").value;
+            
+            // Exibe CPF apenas se for pessoa física
             document.getElementById("cpf_field").style.display = (nature === "fisica") ? "block" : "none";
+            
+            // Exibe CNPJ e IE se for pessoa jurídica
             let isJuridical = (nature === "juridica");
             document.getElementById("cnpj_field").style.display = isJuridical ? "block" : "none";
             document.getElementById("ie_field").style.display = isJuridical ? "block" : "none";
