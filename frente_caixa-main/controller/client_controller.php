@@ -4,14 +4,14 @@ class client_controller extends render_view
 {
     public function render_register_client()
     {
-        //$client = new client_model();
+        
         $this->load_view('register_client_view',[]);
     }
 
     public function register_client()
     {
         function consultarCep($cep) {
-            $cep = preg_replace("/[^0-9]/", "", $cep); // Remove caracteres não numéricos
+            $cep = preg_replace("/[^0-9]/", "", $cep);
             $url = "https://viacep.com.br/ws/$cep/json/";
 
             $ch = curl_init();
@@ -20,7 +20,7 @@ class client_controller extends render_view
             $response = curl_exec($ch);
             curl_close($ch);
 
-            $dados = json_decode($response, true) ?? []; // Garante que seja um array
+            $dados = json_decode($response, true) ?? []; 
             if (!is_array($dados) || empty($dados) || isset($dados['erro'])) {
                 die("Erro ao consultar o CEP. Verifique o valor informado.");
             }
